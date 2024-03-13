@@ -9,5 +9,19 @@ function addTask() {
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
+        // Task Deletion Functionality Here:
+        let xIcon = document.createElement("xIcon");
+        xIcon.innerHTML = "\u00d7";
+        li.appendChild(xIcon);
     }
+    inputBox.value = "";
 }
+
+listContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+    }
+    else if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
+    }
+}, false);

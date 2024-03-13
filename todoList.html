@@ -9,13 +9,17 @@
 <body>
 	<div class="container">
 		<div class="todo-app">
-			<h3>To-Do List</h3>
+			<h2>To-Do List</h2>
 			<div class="row">
 				<input type="text" id="input-box" placeholder="Add Task Here!">
 				<button onClick="addTask()">Add</button>
 			</div>
 			<ul id="list-container">
-				<!-- Initially Empty. -->
+				<!-- Task completed and marked:-->
+				<li class="checked">Task 1</li>
+				<!-- Task not yet completed: -->
+				<li>Task 2</li> 
+				<!-- Tasks removed won't show on the list. -->
 			</ul>
 		</div>
 	</div>
