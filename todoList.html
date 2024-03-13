@@ -2,11 +2,23 @@
 <html lang ="en">
 <head>
 	<title>A Simple Todo List</title>
-	<meta name="description" content="Includes simple functionality." />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Includes simple functionality.">
+	<link rel="stylesheet" href="./todoList.css">
 </head>
 <body>
-	<div>
-		<h1>First, a 'Hello World'. </h1>
+	<div class="container">
+		<div class="todo-app">
+			<h3>To-Do List</h3>
+			<div class="row">
+				<input type="text" id="input-box" placeholder="Add Task Here!">
+				<button onClick="addTask()">Add</button>
+			</div>
+			<ul id="list-container">
+				<!-- Initially Empty. -->
+			</ul>
+		</div>
 	</div>
+<script src="./todoList.js"></script>
 </body>
 </html>
