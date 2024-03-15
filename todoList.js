@@ -20,8 +20,30 @@ function addTask() {
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
+        saveData();
     }
-    else if(e.target.tagName === "SPAN"){
+    else if(e.target.tagName === "XICON"){
         e.target.parentElement.remove();
+        saveData();
     }
 }, false);
+
+function wipe() {
+    // select the last element
+    while (listContainer.firstChild) {
+        listContainer.removeChild(listContainer.firstChild);
+    }
+    saveData();
+}
+
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+function showTask(){ 
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
+
+// function duplicateCheck(){
+
+// }
