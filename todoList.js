@@ -15,6 +15,7 @@ function addTask() {
         li.appendChild(xIcon);
     }
     inputBox.value = "";
+    saveData();
 }
 
 listContainer.addEventListener("click", function(e){
