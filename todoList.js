@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const completedListContainer = document.getElementById("completed-list-container");
 
 function addTask() {
     if (inputBox.value == ""){
@@ -18,6 +19,8 @@ function addTask() {
     saveData();
 }
 
+/**
+// Initial Functionality: Strikethrough + Check Off Item
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
@@ -27,6 +30,35 @@ listContainer.addEventListener("click", function(e){
         e.target.parentElement.remove();
         saveData();
     }
+}, false);
+**/
+
+// New Functionality: Move to New List.
+listContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "LI") {
+        let newLi = document.createElement("li");
+        newLi.classList.toggle("checked");
+        newLi.innerHTML = e.target.innerHTML;
+        completedListContainer.appendChild(newLi);
+        e.target.remove();
+    }
+    else if(e.target.tagName === "XICON"){
+        e.target.parentElement.remove();
+    }
+    saveData();
+}, false);
+
+completedListContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "LI") {
+        let newLi = document.createElement("li");
+        newLi.innerHTML = e.target.innerHTML;
+        listContainer.appendChild(newLi);
+        e.target.remove();
+    }
+    else if(e.target.tagName === "XICON"){
+        e.target.parentElement.remove();
+    }
+    saveData();
 }, false);
 
 function wipe() {
